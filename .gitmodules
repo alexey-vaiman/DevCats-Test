@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:alexey-vaiman/DevCats-Test-Backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:alexey-vaiman/DevCats-Test-Frontend.git
