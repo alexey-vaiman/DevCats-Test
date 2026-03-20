@@ -15,11 +15,36 @@ git clone --recurse-submodules git@github.com:alexey-vaiman/DevCats-Test.git
 cd DevCats-Test
 ```
 
-### 2. Start the application
+### 2. Create .env files
+```bash
+cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+```
+
+### 3. Start the application
 ```bash
 docker compose up -d
 ```
 The frontend will be available at `http://localhost`, and the backend API at `http://localhost:8000`.
+
+## API Configuration
+
+The frontend can talk to the backend in two ways:
+
+### A. Proxy Mode (Default / Recommended)
+Requests to `/api/v1` are proxied via **Nginx** (in Docker) or **Vite** (in dev mode).
+- **Docker**: Nginx handles it via `nginx.conf`.
+- **Local Dev**: `npm run dev` handles it via `vite.config.ts`.
+*No extra configuration needed.*
+
+### B. Direct Mode (Remote Backend)
+If the backend is hosted on a different machine, set `VITE_API_URL` in `frontend/.env`:
+```env
+VITE_API_URL=http://your-remote-backend-ip:8000/v1
+```
+> [!IMPORTANT]
+> When using Direct Mode, ensure the frontend's address is added to `BACKEND_CORS_ORIGINS` in the backend's `.env` file.
 
 ## Data Management
 
