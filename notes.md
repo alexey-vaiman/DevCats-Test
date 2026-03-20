@@ -11,3 +11,5 @@
 7. [ ] add offers list to product dialog in admin
 8. [x] need to update document title in catalog with search, admin, in product details
 9. [ ] figure out working with `delivery_date`
+10. [ ] use default image in products list — now it works in admin only
+11. [ ] distinguish color scheme in user and admin pages

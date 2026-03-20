@@ -31,8 +31,13 @@ Data is stored in `./backend/data/`:
 ### Sharing & Testing (Option 3: Archive)
 If you received a data archive (`data.zip` or similar):
 1. Ensure the containers are stopped: `docker compose down`
-2. Extract the archive into `backend/data/` so that you have `backend/data/postgres` and `backend/data/minio`.
-3. Start the containers: `docker compose up -d`
+2. Make directory: `mkdir -p backend/data`
+3. Download data.zip into `backend/data/`:
+    ```bash
+    curl https://drive.google.com/file/d/1cCsqmA14WcRQQNzsNDgO8RnEuBl2ZFst/view?usp=sharing --output data.zip
+    ```
+4. Extract the archive: `unzip data.zip`, you'll have `data/minio` and `data/postgres`
+5. Start the containers: `docker compose up -d`
 
 ### Seeding (Alternative)
 To generate a *fresh* set of 1000 test products:
