@@ -1,0 +1,17 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Docker data
+backend/data/
+frontend/node_modules/
+backend/venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
