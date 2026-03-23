@@ -2,10 +2,14 @@
 
 This is a full-stack marketplace application organized with a parent repository and two submodules (backend and frontend).
 
-## Structure
-- `backend/`: FastAPI application (Submodule)
-- `frontend/`: Vue 3 application (Submodule)
-- `docker-compose.yml`: Root orchestration file
+## Project Structure & Documentation
+
+This project is a mono-repo managing a full-stack marketplace, designed with scalability and high performance in mind.
+
+-   **[Backend](backend/README.md)**: FastAPI (Asynchronous), PostgreSQL, Alchemy 2.0. Follows a layered architecture (API-Service-Schema-Model).
+-   **[Frontend](frontend/README.md)**: Vue 3, TypeScript, Vite. Organized using **Feature-Sliced Design (FSD)** for modularity.
+-   **[AI Collaboration Docs](docs/ai/README.md)**: Insights into the development process and agent negotiations.
+-   **Root orchestration**: [docker-compose.yml](docker-compose.yml) for full-stack deployment.
 
 ## Getting Started
 
@@ -23,10 +27,21 @@ cp frontend/.env.example frontend/.env
 ```
 
 ### 3. Start the application
+Choose one of the two modes below:
+
+#### A. Full Docker Mode (Everything in containers)
 ```bash
 docker compose up -d
 ```
 The frontend will be available at `http://localhost`, and the backend API at `http://localhost:8000`.
+
+#### B. Hybrid Development Mode (Recommended for Coding)
+If you want to run the **Backend** and **Frontend** locally (for better debugging and hot-reloading) while keeping the infrastructure in Docker:
+1. Start only the infrastructure:
+   ```bash
+   docker compose up -d db minio
+   ```
+2. Follow the setup instructions in the [Backend](backend/README.md) and [Frontend](frontend/README.md) sub-READMEs to run them locally.
 
 ## API Configuration
 
@@ -67,5 +82,5 @@ If you received a data archive (`data.zip` or similar):
 ### Seeding (Alternative)
 To generate a *fresh* set of 1000 test products:
 ```bash
-docker compose exec backend python app/db/seed.py
+docker compose exec backend python -m app.db.seed
 ```
