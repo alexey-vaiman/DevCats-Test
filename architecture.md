@@ -27,11 +27,7 @@
 
 ---
 
-## Infra
-/infra
+## Root
+/
   docker-compose.yml
-  /k8s
-    backend.yaml
-    frontend.yaml
-    db.yaml
-    storage.yaml
+  .env

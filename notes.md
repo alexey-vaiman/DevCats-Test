@@ -14,4 +14,4 @@
 10. [ ] use default image in products list — now it works in admin only
 11. [ ] distinguish color scheme in user and admin pages
 12. [ ] using "stocks" field is not clear — it suppose to be calculated as a sum of stocks in offers (there is no such field now)
-
+13. [ ] "add to cart" do nothing, hide it in details page and in catalog
