@@ -43,6 +43,20 @@ If you want to run the **Backend** and **Frontend** locally (for better debuggin
    ```
 2. Follow the setup instructions in the [Backend](backend/README.md) and [Frontend](frontend/README.md) sub-READMEs to run them locally.
 
+### 4. Database Initialization
+
+After starting the containers, you need to create the database schema and optionally fill it with test data:
+
+1. **Apply Migrations** (Create tables):
+   ```bash
+   docker compose exec backend alembic upgrade head
+   ```
+
+2. **Seed Data** (Optional - generates 1000 products & offers):
+   ```bash
+   docker compose exec backend python -m app.db.seed
+   ```
+
 ## API Configuration
 
 The frontend can talk to the backend in two ways:
@@ -79,8 +93,3 @@ If you received a data archive (`data.zip` or similar):
 4. Extract the archive: `unzip data.zip`, you'll have `data/minio` and `data/postgres`
 5. Start the containers: `docker compose up -d`
 
-### Seeding (Alternative)
-To generate a *fresh* set of 1000 test products:
-```bash
-docker compose exec backend python -m app.db.seed
-```
